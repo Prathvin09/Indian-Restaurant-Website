@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Table - Carnatic Cafe</title>
+    <!-- for icons  -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!-- bootstrap  -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- custom css  -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="body-fixed">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- start of header  -->
+    <header class="site-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header-logo">
+                        <a href="index.html">
+                            <img src="logo.png" width="160" height="36" alt="Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="main-navigation">
+                        <button class="menu-toggle"><span></span><span></span></button>
+                        <nav class="header-menu">
+                            <ul class="menu food-nav-menu">
+                                <li><a href="index.html#home">Home</a></li>
+                                <li><a href="index.html#about">About</a></li>
+                                <li><a href="index.html#menu">Menu</a></li>
+                                <li><a href="index.html#gallery">Gallery</a></li>
+                                <li><a href="index.html#blog">Blog</a></li>
+                                <li><a href="booking.html" class="active-menu">Book Table</a></li>
+                                <li><a href="index.html#contact">Contact</a></li>
+                            </ul>
+                        </nav>
+                        <div class="header-right">
+                            <div class="header-search-form">
+                                <input type="search" class="form-input" placeholder="Search Here...">
+                                <button type="submit">
+                                    <i class="uil uil-search"></i>
+                                </button>
+                            </div>
+                            <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
+                                <i class="uil uil-sun"></i>
+                            </button>
+                            <a href="#" class="header-btn header-cart">
+                                <i class="uil uil-shopping-bag"></i>
+                                <span class="cart-number">0</span>
+                            </a>
+                            <a href="javascript:void(0)" class="header-btn">
+                                <i class="uil uil-user-md"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header ends  -->
+
+    <div id="viewport">
+        <div id="js-scroll-content">
+            <!-- Booking Section -->
+            <section class="booking-page-sec">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="booking-card">
+                                <div id="bookingFormContainer">
+                                    <div class="text-center mb-5">
+                                        <p class="sec-sub-title mb-3">Table Reservation</p>
+                                        <h2>Book A Table</h2>
+                                        <p class="subtitle">Experience authentic South Indian dining at Carnatic Cafe</p>
+                                        <div class="sec-title-shape">
+                                            <img src="assets/images/title-shape.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <form id="tableBookingForm">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="booking-form-group">
+                                                    <i class="uil uil-user"></i>
+                                                    <input type="text" id="bookingName" class="form-input" placeholder="Your Name" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="booking-form-group">
+                                                    <i class="uil uil-envelope"></i>
+                                                    <input type="email" id="bookingEmail" class="form-input" placeholder="Email Address" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="booking-form-group">
+                                                    <i class="uil uil-phone"></i>
+                                                    <input type="tel" id="bookingPhone" class="form-input" placeholder="Phone Number" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="booking-form-group">
+                                                    <i class="uil uil-users-alt"></i>
+                                                    <select id="bookingGuests" class="form-input" required>
+                                                        <option value="" disabled selected>Number of Guests</option>
+                                                        <option value="1">1 Person</option>
+                                                        <option value="2">2 Persons</option>
+                                                        <option value="3">3 Persons</option>
+                                                        <option value="4">4 Persons</option>
+                                                        <option value="5+">5+ Persons</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="booking-form-group">
+                                                    <i class="uil uil-calendar-alt"></i>
+                                                    <input type="date" id="bookingDate" class="form-input" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="booking-form-group">
+                                                    <i class="uil uil-clock"></i>
+                                                    <input type="time" id="bookingTime" class="form-input" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="booking-form-group">
+                                                    <i class="uil uil-notes"></i>
+                                                    <textarea id="bookingNotes" class="form-input" placeholder="Special Requests (Occasion, Dietary requirements, seating preferences)"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 text-center mt-3">
+                                                <button type="submit" class="sec-btn primary-btn">Book Table Now</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- Success Message -->
+                                <div id="bookingSuccessMessage" class="booking-success-container" style="display: none;">
+                                    <i class="uil uil-check-circle success-icon"></i>
+                                    <h3>Reservation Confirmed!</h3>
+                                    <p>Your table booking request has been received. We will send a confirmation details to <strong id="confirmEmail"></strong> shortly.</p>
+                                    <div class="success-details mb-4 text-left p-4 bg-light rounded-3" style="max-width: 450px; margin: 0 auto;">
+                                        <p class="mb-2"><strong>Name:</strong> <span id="summaryName"></span></p>
+                                        <p class="mb-2"><strong>Guests:</strong> <span id="summaryGuests"></span></p>
+                                        <p class="mb-2"><strong>Date & Time:</strong> <span id="summaryDateTime"></span></p>
+                                    </div>
+                                    <a href="index.html" class="sec-btn">Back to Home</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- footer starts  -->
+            <footer class="site-footer" id="contact">
+                <div class="bottom-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <div class="copyright-text">
+                                    <p>Copyright &copy; 2025 <span class="name">Carnatic Cafe.</span> All Rights Reserved. | Designed with ❤️ by <a href="#" style="color: var(--primary-color);">Parthaaa</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- jquery  -->
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <!-- gsap  -->
+    <script src="assets/js/gsap.min.js"></script>
+    <!-- scroll trigger  -->
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <!-- custom js  -->
+    <script src="main.js"></script>
+
+    <script>
+        // Form submission handling
+        document.getElementById('tableBookingForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('bookingName').value;
+            const email = document.getElementById('bookingEmail').value;
+            const guests = document.getElementById('bookingGuests').value;
+            const date = document.getElementById('bookingDate').value;
+            const time = document.getElementById('bookingTime').value;
+
+            // Fill summary values
+            document.getElementById('confirmEmail').textContent = email;
+            document.getElementById('summaryName').textContent = name;
+            document.getElementById('summaryGuests').textContent = guests + (guests === '1' ? ' Person' : ' Persons');
+            document.getElementById('summaryDateTime').textContent = date + ' at ' + time;
+
+            // Animate transition using GSAP
+            gsap.to('#bookingFormContainer', {
+                opacity: 0,
+                y: -30,
+                duration: 0.4,
+                onComplete: function () {
+                    document.getElementById('bookingFormContainer').style.display = 'none';
+                    const successDiv = document.getElementById('bookingSuccessMessage');
+                    successDiv.style.display = 'block';
+                    gsap.fromTo(successDiv, 
+                        { opacity: 0, y: 30 },
+                        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
+                    );
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

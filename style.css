@@ -2491,3 +2491,126 @@ body {
 .delay-3 { transition-delay: 0.3s; }
 .delay-4 { transition-delay: 0.4s; }
 .delay-5 { transition-delay: 0.5s; }
+
+/* ==========================================================================
+   Booking Page Styles
+   ========================================================================== */
+.booking-page-sec {
+    padding: 180px 0 100px;
+    background: linear-gradient(135deg, var(--bg-color) 0%, var(--section-bg) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.booking-card {
+    background: var(--bg-color);
+    padding: 50px;
+    border-radius: 40px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.booking-card h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+    color: var(--text-color);
+}
+
+.booking-card p.subtitle {
+    color: var(--secondary-text);
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+.booking-form-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.booking-form-group i {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+    font-size: 18px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.booking-form-group select.form-input {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.booking-form-group .form-input {
+    width: 100%;
+    height: 55px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-color);
+    color: var(--text-color);
+    padding: 10px 20px 10px 50px;
+    border-radius: 15px;
+    font-size: 15px;
+    box-shadow: inset 3px 3px 6px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    outline: none !important;
+}
+
+.booking-form-group .form-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(255, 130, 67, 0.15);
+}
+
+.booking-form-group textarea.form-input {
+    height: 120px;
+    resize: none;
+    padding-top: 15px;
+}
+
+.booking-form-group textarea + i {
+    top: 25px;
+    transform: none;
+}
+
+.booking-success-container {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.booking-success-container i.success-icon {
+    font-size: 80px;
+    color: #2ecc71;
+    margin-bottom: 20px;
+    display: inline-block;
+    animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes scaleIn {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+.booking-success-container h3 {
+    font-size: 32px;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif;
+}
+
+.booking-success-container p {
+    color: var(--secondary-text);
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.booking-success-container .sec-btn {
+    margin-top: 10px;
+}

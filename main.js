@@ -2,90 +2,96 @@ $(document).ready(function ($) {
     "use strict";
 
 
-    var book_table = new Swiper(".book-table-img-slider", {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        loop: true,
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-        speed: 2000,
-        effect: "coverflow",
-        coverflowEffect: {
-            rotate: 3,
-            stretch: 2,
-            depth: 100,
-            modifier: 5,
-            slideShadows: false,
-        },
-        loopAdditionSlides: true,
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-    });
+    if (typeof Swiper !== 'undefined' && document.querySelector(".book-table-img-slider")) {
+        var book_table = new Swiper(".book-table-img-slider", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            speed: 2000,
+            effect: "coverflow",
+            coverflowEffect: {
+                rotate: 3,
+                stretch: 2,
+                depth: 100,
+                modifier: 5,
+                slideShadows: false,
+            },
+            loopAdditionSlides: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    }
 
-    var team_slider = new Swiper(".team-slider", {
-        slidesPerView: 3,
-        spaceBetween: 30,
-        loop: true,
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-        speed: 2000,
+    if (typeof Swiper !== 'undefined' && document.querySelector(".team-slider")) {
+        var team_slider = new Swiper(".team-slider", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            speed: 2000,
 
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        breakpoints: {
-            0: {
-                slidesPerView: 1.2,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
             },
-            768: {
-                slidesPerView: 2,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
             },
-            992: {
-                slidesPerView: 3,
+            breakpoints: {
+                0: {
+                    slidesPerView: 1.2,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                992: {
+                    slidesPerView: 3,
+                },
+                1200: {
+                    slidesPerView: 3,
+                },
             },
-            1200: {
-                slidesPerView: 3,
-            },
-        },
-    });
+        });
+    }
 
     jQuery(".filters").on("click", function () {
         jQuery("#menu-dish").removeClass("bydefault_show");
     });
     $(function () {
-        var filterList = {
-            init: function () {
-                $("#menu-dish").mixItUp({
-                    selectors: {
-                        target: ".dish-box-wp",
-                        filter: ".filter",
-                    },
-                    animation: {
-                        effects: "fade",
-                        easing: "ease-in-out",
-                    },
-                    load: {
-                        filter: ".all, .breakfast, .lunch, .dinner",
-                    },
-                });
-            },
-        };
-        filterList.init();
+        if (typeof $.fn.mixItUp !== 'undefined' && $("#menu-dish").length) {
+            var filterList = {
+                init: function () {
+                    $("#menu-dish").mixItUp({
+                        selectors: {
+                            target: ".dish-box-wp",
+                            filter: ".filter",
+                        },
+                        animation: {
+                            effects: "fade",
+                            easing: "ease-in-out",
+                        },
+                        load: {
+                            filter: ".all, .breakfast, .lunch, .dinner",
+                        },
+                    });
+                },
+            };
+            filterList.init();
+        }
     });
 
     jQuery(".menu-toggle").click(function () {
@@ -96,24 +102,30 @@ $(document).ready(function ($) {
         jQuery(".main-navigation").removeClass("toggled");
     });
 
-    gsap.registerPlugin(ScrollTrigger);
+    if (typeof gsap !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
 
-    var elementFirst = document.querySelector('.site-header');
-    ScrollTrigger.create({
-        trigger: "body",
-        start: "30px top",
-        end: "bottom bottom",
+        var elementFirst = document.querySelector('.site-header');
+        if (elementFirst) {
+            ScrollTrigger.create({
+                trigger: "body",
+                start: "30px top",
+                end: "bottom bottom",
 
-        onEnter: () => myFunction(),
-        onLeaveBack: () => myFunction(),
-    });
+                onEnter: () => myFunction(),
+                onLeaveBack: () => myFunction(),
+            });
 
-    function myFunction() {
-        elementFirst.classList.toggle('sticky_head');
+            function myFunction() {
+                elementFirst.classList.toggle('sticky_head');
+            }
+        }
     }
 
     var scene = $(".js-parallax-scene").get(0);
-    var parallaxInstance = new Parallax(scene);
+    if (typeof Parallax !== 'undefined' && scene) {
+        var parallaxInstance = new Parallax(scene);
+    }
 
 
 });
@@ -476,24 +488,26 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Handle swiper slider for better mobile experience
-    const swiperTeam = new Swiper('.team-slider', {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        breakpoints: {
-            640: {
-                slidesPerView: 2,
+    if (typeof Swiper !== 'undefined' && document.querySelector('.team-slider')) {
+        const swiperTeam = new Swiper('.team-slider', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
             },
-            1024: {
-                slidesPerView: 3,
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
             },
-        },
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-    });
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+        });
+    }
 });
