@@ -1,0 +1,12 @@
+{
+  "name": "indian-restaurant-website",
+  "version": "1.0.0",
+  "description": "Indian Restaurant Website",
+  "main": "index.html",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}

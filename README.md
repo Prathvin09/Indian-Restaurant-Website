@@ -1,9 +1,9 @@
-# 🍽️ Mamta Bhojnalaya - Modern Indian Restaurant Website
+# 🍽️ Carnatic Cafe - Modern South Indian Restaurant Website
 
-![Mamta Bhojnalaya](logo.png)
+![Carnatic Cafe](logo.png)
 
-> A beautiful and responsive restaurant website showcasing the authentic flavors of Indian vegetarian cuisine. Built with modern web technologies and designed with love.
-<p align="center"><a href="https://yogesh-rebari.github.io/Indian-Restaurant-Website/">Click Here</a>, to visit the website.</p>
+> A beautiful and responsive restaurant website showcasing the authentic flavors of South Indian vegetarian cuisine. Built with modern web technologies and designed with love.
+
 
 ## ✨ Key Features
 
@@ -35,22 +35,24 @@
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/mamta-bhojnalaya.git
+git clone https://github.com/yourusername/Indian-Restaurant-Website.git
 ```
 
 2. Navigate to the project directory:
 ```bash
-cd mamta-bhojnalaya
+cd Indian-Restaurant-Website
 ```
 
-3. Open `index.html` in your browser or use a local server:
+3. Install dependencies:
 ```bash
-# Using Python
-python -m http.server 8000
-
-# Using Node.js
-npx serve
+npm install
 ```
+
+4. Start the local development server:
+```bash
+npm start
+```
+This will automatically launch the website at `http://localhost:3000`.
 
 ## 📱 Responsive Design
 
@@ -80,14 +82,14 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
 
 ## 🙏 Acknowledgments
 
-- Design & Development by [Yogesh Rebari](https://github.com/yogeshrebari)
+- Design & Development by [Parthaaa](#)
 - Icons by [Iconscout](https://unicons.iconscout.com/)
 - Images from [Unsplash](https://unsplash.com/)
 
 ---
 
-<p align="center">Made with ❤️ by <a href="https://github.com/yogeshrebari">Yogesh Rebari</a></p> 
+<p align="center">Made with ❤️ by <a href="#">Parthaaa</a></p>
