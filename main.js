@@ -298,47 +298,59 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, { passive: false });
 
-    // Theme toggle functionality
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = themeToggle.querySelector('i');
-    
-    // Check for saved theme preference or default to light
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme);
-    
-    // Toggle theme
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme);
-    });
-    
-    // Update icon based on theme
-    function updateThemeIcon(theme) {
-        if (theme === 'dark') {
-            themeIcon.classList.remove('uil-sun');
-            themeIcon.classList.add('uil-moon');
+    // Preloader - must run independently, before anything that could throw
+    const preloader = document.querySelector('.preloader');
+    if (preloader) {
+        // Use both 'load' and a short timeout fallback so it always dismisses
+        const dismissPreloader = () => {
+            preloader.classList.add('fade-out');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+                document.body.classList.remove('body-fixed');
+                animateOnScroll();
+            }, 500);
+        };
+        if (document.readyState === 'complete') {
+            dismissPreloader();
         } else {
-            themeIcon.classList.remove('uil-moon');
-            themeIcon.classList.add('uil-sun');
+            window.addEventListener('load', dismissPreloader);
+            // Fallback: force-dismiss after 3 seconds no matter what
+            setTimeout(dismissPreloader, 3000);
         }
     }
 
-    // Preloader
-    const preloader = document.querySelector('.preloader');
-    window.addEventListener('load', () => {
-        preloader.classList.add('fade-out');
-        setTimeout(() => {
-            preloader.style.display = 'none';
-            document.body.classList.remove('body-fixed');
-            // Trigger initial animations
-            animateOnScroll();
-        }, 500);
-    });
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        const themeIcon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to light
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        // Update icon based on theme
+        function updateThemeIcon(theme) {
+            if (themeIcon) {
+                if (theme === 'dark') {
+                    themeIcon.classList.remove('uil-sun');
+                    themeIcon.classList.add('uil-moon');
+                } else {
+                    themeIcon.classList.remove('uil-moon');
+                    themeIcon.classList.add('uil-sun');
+                }
+            }
+        }
+    }
 
     // Enhanced scroll animations
     const animateOnScroll = () => {
